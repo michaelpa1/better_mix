@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #0b0d10;
+    --card: #12151a;
+    --foreground: #e6e6e6;
+    --muted-foreground: rgba(230, 230, 230, 0.6);
+    --muted: rgba(255, 255, 255, 0.06);
+    --input: #12151a;
+    --primary: #38bdf8;
+    --primary-foreground: #0b0d10;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --error: #ef4444;
+  }
+
+  * {
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+.nav-rail  {
+    @apply w-16 border-r border-white/[0.06] flex flex-col items-center py-6 space-y-4;
+  }
+.nav-rail-item  {
+    @apply w-12 h-12 flex items-center justify-center rounded-xl transition-smooth;
+  }
+
+  .nav-rail-item.active {
+    @apply text-primary bg-primary/10 relative;
+  }
+
+  .nav-rail-item.active::after {
+    @apply content-[''] absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-0.5 bg-primary;
+  }
+.studio-card  {
+    @apply border border-white/[0.06] rounded-xl shadow-sm;
+  }
+
+  .studio-padding {
+    @apply px-8 py-6;
+  }
+
+  .transition-smooth {
+    @apply transition-all duration-200 ease-out;
+  }
+.btn-primary  {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-primary font-medium rounded-xl hover:bg-primary/90 transition-smooth focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+.btn-ghost  {
+    @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-xl border border-white/[0.06] transition-smooth focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+.btn-secondary  {
+    @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-xl transition-smooth focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+}
